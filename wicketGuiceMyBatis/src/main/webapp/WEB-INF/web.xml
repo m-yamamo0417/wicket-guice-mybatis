@@ -14,7 +14,10 @@
     </init-param>
     <init-param>
       <param-name>module</param-name>
-      <param-value>myamamo0417.ApplicationModule</param-value>
+      <param-value>
+	myamamo0417.ApplicationModule,
+	myamamo0417.mapper.MapperModule
+      </param-value>
     </init-param>
   </filter>
   <filter-mapping>
