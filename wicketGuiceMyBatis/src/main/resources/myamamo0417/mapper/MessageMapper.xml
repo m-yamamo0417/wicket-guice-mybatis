@@ -5,6 +5,16 @@
 
 <mapper namespace="myamamo0417.mapper.MessageMapper">
 
+  <insert id="insert">
+    insert into MESSAGE
+    select case 
+           when max(MESSAGE_ID) is null then 1
+           else max(MESSAGE_ID) + 1
+           end
+         , #{message}
+      from MESSAGE
+  </insert>
+
   <update id="create">
     create table MESSAGE (
            MESSAGE_ID int not null
@@ -16,5 +26,11 @@
   <update id="drop">
     drop table MESSAGE
   </update>
+
+  <select id="selectAll" resultType="String">
+    select MESSAGE
+      from MESSAGE
+     order by MESSAGE_ID asc
+  </select>
 
 </mapper>
