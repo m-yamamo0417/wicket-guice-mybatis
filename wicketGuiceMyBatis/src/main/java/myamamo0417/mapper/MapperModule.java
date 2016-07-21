@@ -13,17 +13,14 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 public class MapperModule extends MyBatisModule {
 
     protected void initialize() {
-	install(JdbcHelper.Derby_Embedded);
+	install(JdbcHelper.H2_IN_MEMORY_NAMED);
 
 	bindDataSourceProviderType(PooledDataSourceProvider.class);
 	bindTransactionFactoryType(JdbcTransactionFactory.class);
 	
 	Properties properties = new Properties();
 	properties.setProperty("mybatis.environment.id", "develop");
-	properties.setProperty("JDBC.schema", "myamamo0417");
-	properties.setProperty("JDBC.username", "user");
-	properties.setProperty("JDBC.password", "pass");
-	properties.setProperty("derby.create", "true");
+	properties.setProperty("JDBC.schema", "./myamamo0417");
 	Names.bindProperties(binder(), properties);
 
 	addMapperClass(MessageMapper.class);
