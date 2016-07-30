@@ -1,6 +1,12 @@
 <wicket:panel>
   <form wicket:id="form">
-    <input type="text" wicket:id="text" />
-    <input type="submit" wicket:id="button" />
+    <div class="row">
+      <div class="input-field col s10">
+        <input type="text" wicket:id="text" />
+      </div>
+      <div class="input-field cols s2">
+        <button type="submit" wicket:id="button" class="btn">submit</button>
+      </div>
+    </div>
   </form>
 </wicket:panel>
